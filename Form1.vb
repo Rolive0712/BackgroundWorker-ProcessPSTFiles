@@ -1,5 +1,4 @@
-Imports Aspose.Email.Outlook
-Imports Aspose.Email.Outlook.Pst
+Inport dll here
 Imports System.IO
 Imports System.Reflection
 Imports System.Xml
@@ -51,8 +50,7 @@ Public Class Form1
 
     Private Sub setLicense()
         Try
-            Dim licEmail As New Aspose.Email.License()
-            licEmail.SetLicense(AsposeLicensePath)
+            SetLicense
         Catch ex As Exception
             MessageBox.Show(ex.Message)
             ExitApplication()
@@ -136,9 +134,7 @@ Public Class Form1
 
         'DEBUG ASSERT WHILE TESTING 
         'Debug.Assert(displayName.IndexOf("0083730") = -1) 'for testing
-        'Debug.Assert(displayName.IndexOf("C-2011-032") = -1, "Found " & displayName)
-        'Debug.Assert(displayName.IndexOf("CRE") = -1, "Found " & displayName)
-
+        
         Dim actualDisplayName As String = displayName
         Dim success As Boolean = False
         Dim junkWords As Boolean = False
@@ -209,12 +205,7 @@ Public Class Form1
                 Dim srvPath As String = ServerPath & displayName & "/" & formatNew
 
                 If SaveInDBAndCreateMSGFile Then
-                    'Save the MSG file to Disk
-                    message.Save(FilePath)
-                    'Save the MSG file Info into DB
-                    dataAccess.AddOutlookMessageInfo(displayName, message.DisplayTo, message.Subject, srvPath,
-                                                message.DeliveryTime.Date.ToString(), ConfigurationManager.AppSettings("archiveName"),
-                                                actualDisplayName)
+                    
                 End If
             End If
         End If
