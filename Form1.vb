@@ -8,11 +8,7 @@ Imports System.Text.RegularExpressions
 Imports System.ComponentModel
 
 Public Class Form1
-    Dim executablePath As String = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) 'this provides UNC path
-    Dim pstFilePath As String = executablePath & "\" & ConfigurationManager.AppSettings("pstFileName")
-    Dim AsposeLicensePath As String = executablePath & "\" & ConfigurationManager.AppSettings("AsposeLicenseFileName")
-    Dim FolderToExtractMSGFiles As String = ConfigurationManager.AppSettings("FolderToExtractMSGFiles")
-    Dim _serverPath As String = ConfigurationManager.AppSettings("ServerPath")
+    
 
     Dim sbXML As New StringBuilder()
 
